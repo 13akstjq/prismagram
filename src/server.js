@@ -23,6 +23,7 @@ const PORT = process.env.PORT || 4000;
 
 // schema가 api를 합친 버전
 const server = new GraphQLServer({schema});
+
 server.express.use(logger("dev"));
 
 server.start({port : PORT}, () => console.log(`server is running http://localhost:${PORT}`));
