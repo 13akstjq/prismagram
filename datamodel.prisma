@@ -10,6 +10,8 @@ type User {
   likes : [Like!]!
   following: [User!]! @relation(name: "FollowRelation")
   followers: [User!]! @relation(name: "FollowRelation")
+  rooms : [Room]!
+
 }
 
 
@@ -42,3 +44,16 @@ type Like {
   post : Post!
 }
 
+type Room {
+  id : ID! @id
+  participants : [User!]!
+  messages : [Message!]!
+}
+
+type Message {
+  id : ID! @id
+  text : String!
+  from : User! @relation(name : "From")
+  to : User! @relation( name: "To")
+  room : Room!
+}
