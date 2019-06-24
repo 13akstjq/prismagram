@@ -7,11 +7,12 @@ dotenv.config({path : path.resolve(__dirname, ".env")}); // __dirname 에서 .en
 import logger from 'morgan';
 import {GraphQLServer} from 'graphql-yoga';
 import schema from './schema';
-import {sendSecretMail} from "./utils";
+// import passport from 'passport';
+// import './passport';
+
 
 const PORT = process.env.PORT || 4000;
 
-sendSecretMail("13akstjq@naver.com","big mansub");
 //typeDefs
 // const typeDefs = `
 //     type Query{
