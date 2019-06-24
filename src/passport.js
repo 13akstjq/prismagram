@@ -1,14 +1,6 @@
-
-// .env 파일을 import하기위한 코드 
-import dotenv from "dotenv";
-import path from "path";
-dotenv.config({path : path.resolve(__dirname, ".env")}); 
-
-
 import passport from "passport";
 import {Strategy , ExtractJwt} from 'passport-jwt';
 import { prisma } from "../generated/prisma-client";
-
 
 const JWTOptions = {
     jwtFromRequest  : ExtractJwt.fromAuthHeaderAsBearerToken(),
