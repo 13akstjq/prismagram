@@ -11,8 +11,8 @@ type User {
     likes: [Like!]!
     following: [User!]!
     followers: [User!]!
-    amIFollowing: Boolean!
-    itMe: Boolean!
+    isFollowing: Boolean!
+    isSelf: Boolean!
     rooms: [Room]!
     loginSecret: String
 }
