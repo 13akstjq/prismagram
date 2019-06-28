@@ -2,12 +2,26 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        upLoad: (_, args, { request, isAuthenticated }) => {
+        upLoad: async (_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
             const { caption, files } = args;
-            const post = prisma.createPost({ caption });
-            files.array.forEach(element => {});
+            const post = await prisma.createPost({
+                caption,
+                user: { connect: { id: user.id } }
+            });
+            files.forEach(async file => {
+                await prisma.createFile({
+                    url: file,
+                    post: {
+                        // post에도 연결이 됨.... 굳
+                        connect: {
+                            id: post.id
+                        }
+                    }
+                });
+            });
+            return post;
         }
     }
 };
