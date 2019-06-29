@@ -32,3 +32,24 @@ export const POST_FRAGMENT = `
         }
     }
 `;
+
+export const MESSAGE_FRAGMENT = `
+        id
+        to {
+            id
+            username
+        } 
+        from {
+            id 
+            username
+        }
+`;
+
+export const ROOM_FRAGMENT = `
+    fragment RoomParts on Room  {
+        id
+        participants {
+            ${USER_FRAGMENT}
+        }
+    }
+`;
