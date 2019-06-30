@@ -9,6 +9,7 @@ export const COMMENT_FRAGMENT = `
 export const USER_FRAGMENT = `
         id
         username
+        avatar
 `;
 
 export const FILE_FRAGMENT = `
@@ -35,13 +36,12 @@ export const POST_FRAGMENT = `
 
 export const MESSAGE_FRAGMENT = `
         id
+        text
         to {
-            id
-            username
+           ${USER_FRAGMENT}
         } 
         from {
-            id 
-            username
+            ${USER_FRAGMENT}
         }
 `;
 
@@ -50,6 +50,9 @@ export const ROOM_FRAGMENT = `
         id
         participants {
             ${USER_FRAGMENT}
+        }
+        messages {
+            ${MESSAGE_FRAGMENT}
         }
     }
 `;
