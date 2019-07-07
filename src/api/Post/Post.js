@@ -2,7 +2,7 @@ import { prisma } from '../../../generated/prisma-client';
 
 export default {
     Post: {
-        isLiked: async (parent, __, { reqeust }) => {
+        isLiked: async (parent, __, { request }) => {
             const { id: parentId } = parent;
             const { user } = request;
 
@@ -20,9 +20,13 @@ export default {
             });
         },
         likeCount: async (parent, _, __) =>
-            prisma
+            await prisma
                 .likesConnection({ where: { post: { id: parent.id } } })
                 .aggregate()
-                .count()
+                .count(),
+        files: parent => prisma.post({ id: parent.id }).files(),
+        comments: parent => prisma.post({ id: parent.id }).comments(),
+        user: parent => prisma.post({ id: parent.id }).user(),
+        Likes: parent => prisma.post({ id: parent.id }).Likes()
     }
 };

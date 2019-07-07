@@ -1,18 +1,15 @@
 import { prisma } from '../../../../generated/prisma-client';
-import { POST_FRAGMENT } from '../../../fragments';
 
 export default {
     Query: {
         seeFeed: async (_, __, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
-            return await prisma
-                .posts({
-                    where: {
-                        OR: [{ user }, { user: { followers_some: user } }]
-                    }
-                })
-                .$fragment(POST_FRAGMENT);
+            return await prisma.posts({
+                where: {
+                    OR: [{ user }, { user: { followers_some: user } }]
+                }
+            });
         }
     }
 };

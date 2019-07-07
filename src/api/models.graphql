@@ -26,7 +26,7 @@ type Post {
     location: String
     caption: String!
     comments: [Comment!]
-    isLiked: Boolean!
+    isLiked: Boolean
     likeCount: Int!
 }
 
