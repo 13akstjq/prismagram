@@ -1,6 +1,6 @@
 # prismagram
 
-Instagram clone with Express + Prisma + React and React Native.
+Instagram clone with Express + Prisma + React and React Native yeah
 
 ## User Stories
 
