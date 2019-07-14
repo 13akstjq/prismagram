@@ -2,22 +2,23 @@ import { prisma } from '../../../generated/prisma-client';
 
 export default {
     User: {
-        followingCount: ({ id }) =>
-            prisma
+        posts: ({ id }) => prisma.user({ id }).posts(),
+        followingCount: async ({ id }) =>
+            await prisma
                 .usersConnection({ where: { followers_some: { id } } })
                 .aggregate()
                 .count(),
-        followerCount: ({ id }) =>
-            prisma
+        followerCount: async ({ id }) =>
+            await prisma
                 .usersConnection({ where: { following_some: { id } } })
                 .aggregate()
                 .count(),
-        postCount: ({ id }) =>
-            prisma
-                .postsConnection({ where: { id } })
+        postCount: async ({ id }) =>
+            await prisma
+                .postsConnection({ where: { user: { id } } })
                 .aggregate()
                 .count(),
-        fullName: (parent, __, { request }) => {
+        fullName: async (parent, __, { request }) => {
             // firstName + lastName = FullName
             console.log(parent);
             return `${parent.firstName} ${parent.lastName}`;

@@ -9,7 +9,6 @@ type User {
     bio: String
     posts: [Post]
     postCount: Int!
-
     comments: [Comment!]!
     likes: [Like!]!
     following: [User!]!
