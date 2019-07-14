@@ -3,7 +3,7 @@ type User {
   username: String! @unique
   firstName : String @default(value:"")
   lastName : String @default(value:"")
-  avatar : String
+  avatar : String @default(value:"https://instagram.fvte1-1.fna.fbcdn.net/vp/fd4fe819f2bddbd8c621a8038db50ab0/5DA39AF1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fvte1-1.fna.fbcdn.net")
   email : String! @unique
   bio : String
   posts : [Post]

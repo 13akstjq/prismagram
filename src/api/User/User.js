@@ -2,6 +2,21 @@ import { prisma } from '../../../generated/prisma-client';
 
 export default {
     User: {
+        followingCount: ({ id }) =>
+            prisma
+                .usersConnection({ where: { followers_some: { id } } })
+                .aggregate()
+                .count(),
+        followerCount: ({ id }) =>
+            prisma
+                .usersConnection({ where: { following_some: { id } } })
+                .aggregate()
+                .count(),
+        postCount: ({ id }) =>
+            prisma
+                .postsConnection({ where: { id } })
+                .aggregate()
+                .count(),
         fullName: (parent, __, { request }) => {
             // firstName + lastName = FullName
             console.log(parent);

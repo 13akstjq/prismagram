@@ -8,10 +8,14 @@ type User {
     email: String!
     bio: String
     posts: [Post]
+    postCount: Int!
+
     comments: [Comment!]!
     likes: [Like!]!
     following: [User!]!
     followers: [User!]!
+    followingCount: Int!
+    followerCount: Int!
     isFollowing: Boolean!
     isSelf: Boolean!
     rooms: [Room]!
@@ -28,6 +32,7 @@ type Post {
     comments: [Comment!]
     isLiked: Boolean
     likeCount: Int!
+    commentCount: Int!
 }
 
 type Comment {
