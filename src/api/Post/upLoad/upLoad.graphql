@@ -1,3 +1,3 @@
 type Mutation {
-    upLoad(caption: String!, files: [String!]!): Post!
+    upLoad(caption: String!, location: String!, files: [String!]!): Post!
 }
