@@ -4,7 +4,7 @@ import { prisma } from '../generated/prisma-client';
 
 const JWTOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.JWT_SECRET,
+    secretOrKey: process.env.JWT_SECRET
 };
 
 const verifyUser = async (payload, done) => {
