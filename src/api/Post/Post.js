@@ -5,19 +5,21 @@ export default {
         isLiked: async (parent, __, { request }) => {
             const { id: parentId } = parent;
             const { user } = request;
-
-            return await prisma.$exists.post({
+            const result = await prisma.$exists.like({
                 AND: [
                     {
-                        id: parentId
+                        user: {
+                            id: user.id
+                        }
                     },
                     {
-                        Likes_some: {
-                            id: user.id
+                        post: {
+                            id: parentId
                         }
                     }
                 ]
             });
+            return result;
         },
         likeCount: async (parent, _, __) =>
             await prisma

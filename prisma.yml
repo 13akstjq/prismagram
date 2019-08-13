@@ -1,6 +1,6 @@
-endpoint: https://us1.prisma.sh/mshan7/prismagram/dev
+endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
 
 generate:
-  - generator: javascript-client
-    output: ./generated/prisma-client/
+    - generator: javascript-client
+      output: ./generated/prisma-client/

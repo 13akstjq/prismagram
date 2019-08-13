@@ -20,7 +20,6 @@ export default {
                 .count(),
         fullName: async (parent, __, { request }) => {
             // firstName + lastName = FullName
-            console.log(parent);
             return `${parent.firstName} ${parent.lastName}`;
         },
         isFollowing: async (parent, __, { request }) => {
