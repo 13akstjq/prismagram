@@ -13,7 +13,6 @@ type User {
   followers: [User!]! @relation(name: "FollowRelation")
   rooms : [Room]!
   loginSecret : String
-  test : String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
