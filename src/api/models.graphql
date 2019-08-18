@@ -19,8 +19,7 @@ type User {
     isSelf: Boolean!
     rooms: [Room]!
     loginSecret: String
-    createdAt: String
-    updatedAt: String
+    test: String
 }
 
 type Post {
@@ -34,8 +33,6 @@ type Post {
     isLiked: Boolean
     likeCount: Int!
     commentCount: Int!
-    createdAt: String
-    updatedAt: String
 }
 
 type Comment {

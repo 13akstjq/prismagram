@@ -13,8 +13,7 @@ type User {
   followers: [User!]! @relation(name: "FollowRelation")
   rooms : [Room]!
   loginSecret : String
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
+  test : String
 }
 
 
@@ -26,8 +25,6 @@ type Post {
   location : String
   caption : String! 
   comments : [Comment!]
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type Comment {
