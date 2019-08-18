@@ -9,7 +9,7 @@ export default {
                 where: {
                     OR: [{ user }, { user: { followers_some: user } }]
                 },
-                orderBy: createdAt_DESC
+                orderBy: 'createdAt_DESC'
             });
         }
     }
