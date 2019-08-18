@@ -8,7 +8,8 @@ export default {
             return await prisma.posts({
                 where: {
                     OR: [{ user }, { user: { followers_some: user } }]
-                }
+                },
+                orderBy: createdAt_DESC
             });
         }
     }
