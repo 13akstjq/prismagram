@@ -9,9 +9,9 @@
         "deploy": "prisma deploy",
         "deployf": "prisma deploy --force",
         "generate": "prisma generate",
-        "prisma": "prisma deploy --force && npm run generate",
+        "prisma": "prisma deploy && npm run generate",
         "build": "babel src -d build",
-        "prebuild": "prisma deploy --force",
+        "prebuild": "npm run generate",
         "postbuild": "npx copy src/api/**/**.graphql ./build/api",
         "start": "node build/server.js"
     },
