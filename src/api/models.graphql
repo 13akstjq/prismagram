@@ -19,6 +19,8 @@ type User {
     isSelf: Boolean!
     rooms: [Room]!
     loginSecret: String
+    createdAt: String
+    updatedAt: String
 }
 
 type Post {
