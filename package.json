@@ -11,7 +11,7 @@
         "generate": "prisma generate",
         "prisma": "prisma deploy --force && npm run generate",
         "build": "babel src -d build",
-        "prebuild": "npm run prisma",
+        "prebuild": "prisma deploy --force",
         "postbuild": "npx copy src/api/**/**.graphql ./build/api",
         "start": "node build/server.js"
     },
